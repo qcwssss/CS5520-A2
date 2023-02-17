@@ -15,6 +15,9 @@ const EntryList = () => {
   return (
     <View style={styles.container}>
       <FlatList
+        style={{
+          flexGrow: 0,
+        }}
         data={entries}
         renderItem={({ item }) => <EntryComponent entry={item} />}
       />
