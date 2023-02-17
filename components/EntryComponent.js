@@ -1,18 +1,21 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
-import { Feather } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Foundation } from "@expo/vector-icons";
 
-const EntryComponent = () => {
-  const entry = { item: "Snacks", calorie: 500 };
+const EntryComponent = ({ entry }) => {
+  //   const entry = { item: "Snacks", calorie: 560 };
+  const [limit, setLimit] = useState(500);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{entry.item}</Text>
-      {/* <View style={styles.iconContainer}> */}
-      <Feather name="alert-triangle" size={24} color="black" />
-      <View style={styles.numberContainer}>
-        <Text style={styles.number}>{entry.calorie}</Text>
-        {/* </View> */}
+      <View style={styles.numberWrapper}>
+        {entry.calorie > limit && (
+          <Foundation name="alert" size={28} color="yellow" />
+        )}
+        <View style={styles.numberContainer}>
+          <Text style={styles.number}>{entry.calorie}</Text>
+        </View>
       </View>
     </View>
   );
@@ -22,12 +25,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // justifyContent: "flex-end",
     backgroundColor: "purple",
     width: "90%",
     alignSelf: "center",
     borderRadius: 10,
     padding: 10,
+    marginBottom: 10,
   },
   text: {
     color: "white",
@@ -35,10 +38,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingVertical: 5,
   },
-  iconContainer: {
-    justifyContent: "flex-end",
+  tail: {
+    flexDirection: "row",
+  },
+  numberWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  icon: {
+    padding: 5,
   },
   numberContainer: {
+    marginLeft: 5,
     backgroundColor: "white",
     borderRadius: 10,
     padding: 8,
