@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 import { Foundation } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { barColor, bgColor } from "../styles/styles";
 
 const EntryComponent = ({ entry }) => {
   //   const entry = { item: "Snacks", calorie: 560 };
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "purple",
+    backgroundColor: barColor,
     width: "90%",
     alignSelf: "center",
     borderRadius: 10,

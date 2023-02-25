@@ -4,15 +4,23 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
 import Home from "./components/BottomNavTabs";
 import EditEntry from "./components/EditEntry";
+import { bgColor } from "./styles/styles";
 
 const Stack = createNativeStackNavigator();
 const headerOptions = {
   headerStyle: {
-    backgroundColor: "purple",
+    backgroundColor: bgColor,
   },
-  headerTintColor: "#eee",
+  headerTintColor: "#fff",
   headerTitleStyle: {
     fontSize: 20,
+  },
+  tabBarStyle: {
+    backgroundColor: bgColor,
+  },
+  tabBarLabelStyle: {
+    fontSize: 11,
+    fontWeight: "bold",
   },
 };
 
@@ -26,7 +34,11 @@ function App() {
           name="Home"
           component={Home}
         />
-        <Stack.Screen name="EditEntry" component={EditEntry} />
+        <Stack.Screen
+          options={{ title: "Edit Entry" }}
+          name="EditEntry"
+          component={EditEntry}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
