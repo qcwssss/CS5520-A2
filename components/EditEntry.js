@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import PressableButton from "./PressableButton";
+import { bgColor, lightBg, navy } from "../styles/styles";
 
 const onDelete = () => {
   console.log("delete pressed");
@@ -21,7 +22,6 @@ const EditEntry = ({ route }) => {
           <Text style={styles.label}>Calorie: {entry.calorie}</Text>
           <Text style={styles.label}>Description: {entry.item}</Text>
         </View>
-
         <View style={styles.buttonRow}>
           <PressableButton style={styles.button} pressHandler={onDelete}>
             <AntDesign name="delete" size={20} color="white" />
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     paddingTop: 60,
   },
   card: {
-    backgroundColor: "#FFFFFF",
     width: "70%",
     borderRadius: 10,
     padding: 20,
@@ -54,9 +53,9 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 4,
     elevation: 5,
-    backgroundColor: "yellow",
+    backgroundColor: lightBg,
   },
   textContainer: {
     // flexDirection: "row",
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     marginBottom: 5,
-    color: "blue",
+    color: navy,
   },
 
   buttonRow: {

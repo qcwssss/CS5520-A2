@@ -50,6 +50,9 @@ const bgColor = "#6096B4";
 const highlight = "#FDFF00";
 const inactive = "#BDCDD6";
 const barColor = "#5B8FB9";
+const lightBg = "#ECF9FF";
+const navy = "#00337C";
+const lightText = "#ECF2FF";
 
+export { bgColor, lightText, highlight, navy, inactive, barColor, lightBg };
 export default styles;
-export { bgColor, highlight, inactive, barColor, headerOptStyles };
