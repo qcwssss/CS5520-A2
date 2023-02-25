@@ -1,15 +1,38 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
-import EntryComponent from "./components/EntryComponent";
-import EntryList from "./components/EntryList";
+import BottomNavTabs from "./components/BottomNavTabs";
+import AllEntries from "./screens/AllEntries";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <EntryList />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "purple",
+          },
+          headerTintColor: "#eee",
+          headerTitleStyle: {
+            fontSize: 20,
+          },
+        }}
+      >
+        <Stack.Screen name="Home" component={BottomNavTabs} />
+
+        {/* <Stack.Screen
+          options={{
+            title: "All Entries",
+          }}
+          name="All Entries"
+          component={AllEntries}
+        /> */}
+        {/* <Stack.Screen name="GoalDetails" component={GoalDetails} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
