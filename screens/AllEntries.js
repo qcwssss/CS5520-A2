@@ -1,20 +1,13 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import EntriesList from "../components/EntriesList";
 import { entries } from "../mock/entryData";
+import styles from "../styles/styles";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-const AllEntries = () => {
+const AllEntries = ({ route }) => {
+  console.log(route);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.screenContainer}>
       <EntriesList data={entries} />
     </SafeAreaView>
   );

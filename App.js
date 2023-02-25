@@ -2,7 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
-import BottomNavTabs from "./components/BottomNavTabs";
+import Home from "./components/BottomNavTabs";
+import EditEntry from "./components/EditEntry";
 import AllEntries from "./screens/AllEntries";
 
 const Stack = createNativeStackNavigator();
@@ -21,7 +22,13 @@ export default function App() {
           },
         }}
       >
-        <Stack.Screen name="Home" component={BottomNavTabs} />
+        <Stack.Screen
+          options={{
+            title: "All My Goals",
+          }}
+          name="Home"
+          component={Home}
+        />
 
         {/* <Stack.Screen
           options={{
@@ -30,7 +37,7 @@ export default function App() {
           name="All Entries"
           component={AllEntries}
         /> */}
-        {/* <Stack.Screen name="GoalDetails" component={GoalDetails} /> */}
+        <Stack.Screen name="EditEntry" component={EditEntry} />
       </Stack.Navigator>
     </NavigationContainer>
   );
