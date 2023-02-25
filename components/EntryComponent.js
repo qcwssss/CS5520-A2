@@ -11,7 +11,7 @@ const EntryComponent = ({ entry }) => {
 
   const onPressEntry = () => {
     // console.log("pressed", entry);
-    naviagtion.navigate("EditEntry", entry);
+    naviagtion.navigate("EditEntry", { entryItem: entry });
   };
 
   return (

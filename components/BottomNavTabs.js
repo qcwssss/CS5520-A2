@@ -11,6 +11,7 @@ const Tab = createBottomTabNavigator();
 const Home = () => {
   //   const navigation = useNavigation();
   //   console.log(route);
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -20,7 +21,7 @@ const Home = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="coffee" size={size} color={color} />
           ),
-          headerShown: false,
+          //   headerShown: false,
         }}
       />
       <Tab.Screen

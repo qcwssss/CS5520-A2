@@ -12,7 +12,7 @@ const onCheck = () => {
 };
 
 const EditEntry = ({ route }) => {
-  const entry = route.params;
+  const entry = route.params.entryItem;
   console.log(entry);
   return (
     <View style={styles.container}>
