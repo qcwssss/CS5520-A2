@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
 import Home from "./components/BottomNavTabs";
-import EditEntry from "./components/EditEntry";
+import EditEntry from "./screens/EditEntry";
 import { bgColor } from "./styles/styles";
 
 const Stack = createNativeStackNavigator();

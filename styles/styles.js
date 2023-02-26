@@ -1,51 +1,70 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 
-const card = {
-  marginTop: 20,
-  backgroundColor: "#dcdcdc",
-  width: "80%",
-  padding: 20,
-  borderRadius: 5,
-  shadowColor: "#000",
-  shadowOpacity: 0.2,
-  shadowRadius: 5,
-  shadowOffset: {
-    width: 0,
-    height: 3,
-  },
-  elevation: 2,
+const colors = {
+  bgColor: "#3795BD",
+  highlight: "#FDFF00",
+  inactive: "#BDCDD6",
+  barColor: "#5B8FB9",
+  lightBg: "#ECF9FF",
+  navy: "#00337C",
+  lightText: "#ECF2FF",
+  btnColor: "#0F6292",
+};
+
+const basicContainer = {
+  flex: 1,
+  alignItems: "center",
+  backgroundColor: "lightblue",
 };
 
 const styles = StyleSheet.create({
   screenContainer: {
-    flex: 1,
-    backgroundColor: "lightblue",
-    alignItems: "center",
+    ...basicContainer,
     justifyContent: "center",
   },
+  editContainer: {
+    ...basicContainer,
+    paddingTop: 60,
+    justifyContent: "flex-start",
+  },
   card: {
-    ...card,
+    width: "70%",
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    backgroundColor: colors.lightBg,
+  },
+  textContainer: {
+    // flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  label: {
+    fontWeight: "bold",
+    fontSize: 16,
+    marginBottom: 5,
+    color: colors.navy,
+  },
+
+  buttonRow: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+  button: {
+    backgroundColor: colors.btnColor,
+    padding: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
   },
 });
 
-const bgColor = "#3795BD";
-const highlight = "#FDFF00";
-const inactive = "#BDCDD6";
-const barColor = "#5B8FB9";
-const lightBg = "#ECF9FF";
-const navy = "#00337C";
-const lightText = "#ECF2FF";
-const btnColor = "#0F6292";
-
-export {
-  bgColor,
-  btnColor,
-  lightText,
-  highlight,
-  navy,
-  inactive,
-  barColor,
-  lightBg,
-};
+export { colors };
 export default styles;

@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 
-export default function PressableButton({ style, pressHandler, children }) {
+function PressableButton({ style, pressHandler, children }) {
   return (
     <Pressable
       style={({ pressed }) => {
@@ -21,3 +21,5 @@ const styles = StyleSheet.create({
   buttonStyle: { justifyContent: "center", backgroundColor: "green" },
   pressedStyle: { backgroundColor: "red", opacity: 0.5 },
 });
+
+export default PressableButton;

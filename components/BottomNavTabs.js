@@ -5,7 +5,7 @@ import AllEntries from "../screens/AllEntries";
 import OverLimitEntries from "../screens/OverLimitEntries";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { bgColor, highlight, inactive } from "../styles/styles";
+import { colors } from "../styles/styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,14 +16,14 @@ const Home = () => {
     <Tab.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: bgColor,
+          backgroundColor: colors.bgColor,
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontSize: 20,
         },
         tabBarStyle: {
-          backgroundColor: bgColor,
+          backgroundColor: colors.bgColor,
         },
         tabBarLabelStyle: {
           fontSize: 11,
@@ -36,8 +36,8 @@ const Home = () => {
         component={AllEntries}
         options={{
           title: "All Entries",
-          tabBarInactiveTintColor: inactive,
-          tabBarActiveTintColor: highlight,
+          tabBarInactiveTintColor: colors.inactive,
+          tabBarActiveTintColor: colors.highlight,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="coffee" size={size} color={color} />
           ),
@@ -49,8 +49,8 @@ const Home = () => {
         options={{
           title: "Over-limit Entries",
 
-          tabBarInactiveTintColor: inactive,
-          tabBarActiveTintColor: highlight,
+          tabBarInactiveTintColor: colors.inactive,
+          tabBarActiveTintColor: colors.highlight,
 
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons

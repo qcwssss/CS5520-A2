@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 import { Foundation } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { barColor, bgColor, lightText } from "../styles/styles";
+import { colors } from "../styles/styles";
 
 const EntryComponent = ({ entry }) => {
   //   const entry = { item: "Snacks", calorie: 560 };
@@ -18,7 +18,7 @@ const EntryComponent = ({ entry }) => {
   return (
     <Pressable onPress={onPressEntry}>
       <View style={styles.container}>
-        <Text style={styles.text}>{entry.item}</Text>
+        <Text style={styles.whiteText}>{entry.item}</Text>
         <View style={styles.numberWrapper}>
           {entry.calorie > limit && (
             <Foundation name="alert" size={28} color="yellow" />
@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: barColor,
+    backgroundColor: colors.barColor,
     width: "90%",
     alignSelf: "center",
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
   },
-  text: {
-    color: lightText,
+  whiteText: {
+    color: colors.lightText,
     fontSize: 18,
     fontWeight: "bold",
     paddingVertical: 5,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   number: {
-    color: "purple",
+    color: colors.navy,
     fontSize: 15,
     fontWeight: "bold",
   },
