@@ -15,6 +15,7 @@ const onCheck = () => {
 const EditEntry = ({ route }) => {
   const entry = route.params.entryItem;
   console.log(entry);
+
   return (
     <View style={styles.editContainer}>
       <View style={styles.card}>
@@ -26,6 +27,7 @@ const EditEntry = ({ route }) => {
           <PressableButton style={styles.button} pressHandler={onDelete}>
             <AntDesign name="delete" size={20} color="white" />
           </PressableButton>
+          {/* if reviewed, hide check btn */}
           <PressableButton style={styles.button} pressHandler={onCheck}>
             <AntDesign name="check" size={20} color="white" />
           </PressableButton>
