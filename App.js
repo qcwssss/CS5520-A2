@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import Home from "./components/BottomNavTabs";
+import AddEntry from "./screens/AddEntry";
 import EditEntry from "./screens/EditEntry";
 import { headerOptionsStyle } from "./styles/styles";
 
@@ -21,6 +22,11 @@ function App() {
           options={{ title: "Edit Entry" }}
           name="EditEntry"
           component={EditEntry}
+        />
+        <Stack.Screen
+          options={{ title: "Add An Entry" }}
+          name="AddEntry"
+          component={AddEntry}
         />
       </Stack.Navigator>
     </NavigationContainer>

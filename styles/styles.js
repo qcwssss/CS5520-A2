@@ -42,18 +42,31 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightBg,
   },
   textContainer: {
-    // flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginVertical: 10,
   },
+  inputWrapper: {
+    flexDirection: "row",
+    width: "80%",
+    margin: 5,
+    justifyContent: "flex-start",
+    marginVertical: 8,
+  },
+  input: {
+    backgroundColor: "#fff",
+    width: 220,
+    marginHorizontal: 10,
+    borderRadius: 5,
+    padding: 8,
+    backgroundColor: "#ECF2FF",
+  },
   label: {
     fontWeight: "bold",
     fontSize: 16,
-    marginBottom: 5,
     color: colors.navy,
+    marginBottom: 5,
   },
-
   buttonRow: {
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -78,6 +91,7 @@ const headerOptionsStyle = {
   headerTitleStyle: {
     fontSize: 20,
   },
+  headerBackTitle: "Back",
 };
 
 export { colors, headerOptionsStyle };

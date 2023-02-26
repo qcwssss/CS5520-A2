@@ -12,6 +12,9 @@ const Tab = createBottomTabNavigator();
 
 const Home = () => {
   const navigation = useNavigation();
+  const addEntryPressed = () => {
+    navigation.navigate("AddEntry");
+  };
 
   return (
     <Tab.Navigator
@@ -20,7 +23,10 @@ const Home = () => {
         return {
           headerRight: () => {
             return (
-              <PressableButton style={styles.addButton} pressHandler={() => {}}>
+              <PressableButton
+                style={styles.addButton}
+                pressHandler={addEntryPressed}
+              >
                 <AntDesign name="plus" size={20} color="white" />
               </PressableButton>
             );
