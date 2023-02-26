@@ -40,16 +40,15 @@ const AddEntry = () => {
         />
       </View>
       <View style={styles.buttonRow}>
-        <PressableButton style={styles.addButton} pressHandler={onReset}>
-          <Text style={styles.btnText}>Reset</Text>
-        </PressableButton>
-        <PressableButton style={styles.button} pressHandler={onSubmit}>
-          <Text style={styles.btnText}>Submit</Text>
-        </PressableButton>
         <TextButton
-          style={styles.addButton}
-          pressHandler={onSubmit}
+          style={styles.createBtn}
+          pressHandler={onReset}
           text={"Reset"}
+        />
+        <TextButton
+          style={styles.createBtn}
+          pressHandler={onSubmit}
+          text={"Submit"}
         />
       </View>
     </View>

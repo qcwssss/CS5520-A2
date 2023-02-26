@@ -77,9 +77,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
   },
+  createBtn: {
+    backgroundColor: colors.btnColor,
+    marginTop: 20,
+    marginHorizontal: 10,
+    padding: 6,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+  },
   addButton: {
     padding: 10,
-    borderRadius: 20,
+    paddingHorizontal: 20,
   },
 });
 
