@@ -5,7 +5,7 @@ import AllEntries from "../screens/AllEntries";
 import OverLimitEntries from "../screens/OverLimitEntries";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { colors } from "../styles/styles";
+import { colors, headerOptionsStyle } from "../styles/styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,13 +15,14 @@ const Home = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerStyle: {
-          backgroundColor: colors.bgColor,
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontSize: 20,
-        },
+        // headerStyle: {
+        //   backgroundColor: colors.bgColor,
+        // },
+        // headerTintColor: "#fff",
+        // headerTitleStyle: {
+        //   fontSize: 20,
+        // },
+        ...headerOptionsStyle,
         tabBarStyle: {
           backgroundColor: colors.bgColor,
         },

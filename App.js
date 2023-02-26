@@ -4,31 +4,28 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
 import Home from "./components/BottomNavTabs";
 import EditEntry from "./screens/EditEntry";
-import { bgColor } from "./styles/styles";
+import { colors, headerOptionsStyle } from "./styles/styles";
 
 const Stack = createNativeStackNavigator();
 const headerOptions = {
-  headerStyle: {
-    backgroundColor: bgColor,
-  },
-  headerTintColor: "#fff",
-  headerTitleStyle: {
-    fontSize: 20,
-  },
-  tabBarStyle: {
-    backgroundColor: bgColor,
-  },
-  tabBarLabelStyle: {
-    fontSize: 11,
-    fontWeight: "bold",
-  },
+  // headerStyle: {
+  //   backgroundColor: colors.bgColor,
+  // },
+  // headerTintColor: "#fff",
+  // headerTitleStyle: {
+  //   fontSize: 20,
+  // },
+  ...headerOptionsStyle,
 };
 
 function App() {
   return (
     <NavigationContainer>
       <StatusBar />
-      <Stack.Navigator screenOptions={headerOptions}>
+      <Stack.Navigator
+        screenOptions={headerOptions}
+        //
+      >
         <Stack.Screen
           options={{ headerShown: false }}
           name="Home"

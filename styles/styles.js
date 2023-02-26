@@ -66,5 +66,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export { colors };
+const headerOptionsStyle = {
+  headerStyle: {
+    backgroundColor: colors.bgColor,
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontSize: 20,
+  },
+};
+
+export { colors, headerOptionsStyle };
 export default styles;

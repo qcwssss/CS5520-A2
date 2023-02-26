@@ -7,6 +7,7 @@ import styles from "../styles/styles";
 
 const OverLimitEntries = () => {
   const overlimits = entries.filter((entry) => entry.calorie > 600);
+  // filter reviewed items
   return (
     <SafeAreaView style={styles.screenContainer}>
       <EntriesList data={overlimits} />
