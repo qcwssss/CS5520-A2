@@ -64,6 +64,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
   },
+  addButton: {
+    padding: 10,
+    borderRadius: 20,
+  },
 });
 
 const headerOptionsStyle = {

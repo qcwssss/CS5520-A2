@@ -1,35 +1,42 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AllEntries from "../screens/AllEntries";
 import OverLimitEntries from "../screens/OverLimitEntries";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { colors, headerOptionsStyle } from "../styles/styles";
+import styles, { colors, headerOptionsStyle } from "../styles/styles";
+import PressableButton from "./PressableButton";
+import { AntDesign } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
-  //   const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <Tab.Navigator
-      screenOptions={{
-        // headerStyle: {
-        //   backgroundColor: colors.bgColor,
-        // },
-        // headerTintColor: "#fff",
-        // headerTitleStyle: {
-        //   fontSize: 20,
-        // },
-        ...headerOptionsStyle,
-        tabBarStyle: {
-          backgroundColor: colors.bgColor,
-        },
-        tabBarLabelStyle: {
-          fontSize: 11,
-          fontWeight: "bold",
-        },
+      screenOptions={({ route }) => {
+        console.log(route);
+        return {
+          headerRight: () => {
+            return (
+              <PressableButton style={styles.addButton} pressHandler={() => {}}>
+                <AntDesign name="plus" size={20} color="white" />
+              </PressableButton>
+            );
+          },
+          ...headerOptionsStyle,
+          tabBarStyle: {
+            backgroundColor: colors.bgColor,
+          },
+
+          tabBarInactiveTintColor: colors.inactive,
+          tabBarActiveTintColor: colors.highlight,
+          tabBarLabelStyle: {
+            fontSize: 11,
+            fontWeight: "bold",
+          },
+        };
       }}
     >
       <Tab.Screen
@@ -49,10 +56,6 @@ const Home = () => {
         component={OverLimitEntries}
         options={{
           title: "Over-limit Entries",
-
-          tabBarInactiveTintColor: colors.inactive,
-          tabBarActiveTintColor: colors.highlight,
-
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="exclamation"
