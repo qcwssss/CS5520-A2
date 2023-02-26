@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import PressableButton from "./PressableButton";
-import { bgColor, lightBg, navy } from "../styles/styles";
+import { bgColor, btnColor, highlight, lightBg, navy } from "../styles/styles";
 
 const onDelete = () => {
   console.log("delete pressed");
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   button: {
-    backgroundColor: "purple",
+    backgroundColor: btnColor,
     padding: 10,
     paddingHorizontal: 20,
     borderRadius: 5,

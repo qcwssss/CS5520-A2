@@ -17,23 +17,6 @@ const card = {
   elevation: 2,
 };
 
-const headerOptStyles = {
-  headerStyle: {
-    backgroundColor: bgColor,
-  },
-  headerTintColor: "#fff",
-  headerTitleStyle: {
-    fontSize: 20,
-  },
-  tabBarStyle: {
-    backgroundColor: bgColor,
-  },
-  tabBarLabelStyle: {
-    fontSize: 11,
-    fontWeight: "bold",
-  },
-};
-
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
@@ -46,13 +29,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const bgColor = "#6096B4";
+const bgColor = "#3795BD";
 const highlight = "#FDFF00";
 const inactive = "#BDCDD6";
 const barColor = "#5B8FB9";
 const lightBg = "#ECF9FF";
 const navy = "#00337C";
 const lightText = "#ECF2FF";
+const btnColor = "#0F6292";
 
-export { bgColor, lightText, highlight, navy, inactive, barColor, lightBg };
+export {
+  bgColor,
+  btnColor,
+  lightText,
+  highlight,
+  navy,
+  inactive,
+  barColor,
+  lightBg,
+};
 export default styles;
