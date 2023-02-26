@@ -3,6 +3,7 @@ import { View, Text, TextInput, Alert } from "react-native";
 import { useState } from "react";
 import styles from "../styles/styles";
 import { TextButton } from "../components/PressableButton";
+import { addEntryToDB } from "../Firebase/firestore-helper";
 
 const AddEntry = () => {
   const [calories, setCalories] = useState("");
@@ -14,13 +15,16 @@ const AddEntry = () => {
   };
 
   const onSubmit = () => {
-    if (!calories || !description) {
-      Alert.alert("Error", "Please fill out empty fields.");
+    const errMsg = "Invalid Input";
+    if (!calories || description.trim() === "") {
+      Alert.alert(errMsg, "Please fill out all fields.");
     } else if (isNaN(calories) || Number(calories) <= 0) {
-      Alert.alert("Error", "Please enter a valid calories value.");
+      Alert.alert(errMsg, "Please enter a valid calories value.");
     } else {
       // do something with valid input
       console.log(calories, description);
+      let entry = { calories: calories, description: description };
+      addEntryToDB(entry);
     }
   };
 
