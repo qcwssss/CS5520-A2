@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Alert } from "react-native";
 import { useState } from "react";
 import styles from "../styles/styles";
-import PressableButton, { TextButton } from "../components/PressableButton";
+import { TextButton } from "../components/PressableButton";
 
 const AddEntry = () => {
   const [calories, setCalories] = useState("");
@@ -14,8 +14,14 @@ const AddEntry = () => {
   };
 
   const onSubmit = () => {
-    // Handle submit logic here
-    console.log("Submitted!");
+    if (!calories || !description) {
+      Alert.alert("Error", "Please fill out empty fields.");
+    } else if (isNaN(calories) || Number(calories) <= 0) {
+      Alert.alert("Error", "Please enter a valid calories value.");
+    } else {
+      // do something with valid input
+      console.log(calories, description);
+    }
   };
 
   return (
