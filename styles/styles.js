@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   editContainer: {
     ...basicContainer,
     paddingTop: 60,
-    justifyContent: "flex-start",
   },
   card: {
     width: "70%",
@@ -42,7 +41,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightBg,
   },
   textContainer: {
-    justifyContent: "space-between",
     alignItems: "center",
     marginVertical: 10,
   },
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     padding: 10,
-    paddingHorizontal: 20,
+    borderRadius: 20,
   },
 });
 
