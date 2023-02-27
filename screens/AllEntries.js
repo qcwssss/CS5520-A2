@@ -4,8 +4,7 @@ import EntriesList from "../components/EntriesList";
 import { entries } from "../mock/entryData";
 import styles from "../styles/styles";
 
-const AllEntries = ({ route }) => {
-  console.log(route);
+const AllEntries = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <EntriesList data={entries} />

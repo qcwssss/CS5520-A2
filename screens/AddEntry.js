@@ -4,10 +4,12 @@ import { useState } from "react";
 import styles from "../styles/styles";
 import { TextButton } from "../components/PressableButton";
 import { addEntryToDB } from "../Firebase/firestore-helper";
+import { useNavigation } from "@react-navigation/native";
 
 const AddEntry = () => {
   const [calories, setCalories] = useState("");
   const [description, setDescription] = useState("");
+  const navigation = useNavigation();
 
   const onReset = () => {
     setCalories("");
@@ -21,10 +23,9 @@ const AddEntry = () => {
     } else if (isNaN(calories) || Number(calories) <= 0) {
       Alert.alert(errMsg, "Please enter a valid calories value.");
     } else {
-      // do something with valid input
-      console.log(calories, description);
       let entry = { calories: calories, description: description };
       addEntryToDB(entry);
+      navigation.goBack();
     }
   };
 

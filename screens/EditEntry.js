@@ -14,7 +14,7 @@ const onCheck = () => {
 
 const EditEntry = ({ route }) => {
   const entry = route.params.entryItem;
-  console.log(entry);
+  // console.log(entry);
 
   return (
     <View style={styles.editContainer}>

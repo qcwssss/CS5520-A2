@@ -4,6 +4,10 @@ import { firestore } from "./firestore-setup";
 
 const addEntryToDB = async (entry) => {
   const docRef = await addDoc(collection(firestore, "entries"), entry);
+
+  let eid = docRef.id;
+  console.log(eid);
+  return eid;
 };
 
 const deleteEntryById = async (id) => {

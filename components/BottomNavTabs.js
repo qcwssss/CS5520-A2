@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => {
-        console.log(route);
+        // console.log(route);
         return {
           headerRight: () => {
             return (
