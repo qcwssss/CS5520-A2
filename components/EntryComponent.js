@@ -18,13 +18,13 @@ const EntryComponent = ({ entry }) => {
   return (
     <Pressable onPress={onPressEntry}>
       <View style={styles.container}>
-        <Text style={styles.whiteText}>{entry.item}</Text>
+        <Text style={styles.whiteText}>{entry.description}</Text>
         <View style={styles.numberWrapper}>
           {entry.calorie > limit && (
             <Foundation name="alert" size={28} color="yellow" />
           )}
           <View style={styles.numberContainer}>
-            <Text style={styles.number}>{entry.calorie}</Text>
+            <Text style={styles.number}>{entry.calories}</Text>
           </View>
         </View>
       </View>

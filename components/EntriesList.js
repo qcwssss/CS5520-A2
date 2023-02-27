@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, StyleSheet, SafeAreaView } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import EntryComponent from "../components/EntryComponent";
 
 const styles = StyleSheet.create({
