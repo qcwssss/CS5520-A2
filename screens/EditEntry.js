@@ -12,6 +12,18 @@ import {
   reviewAlertMessages,
 } from "../components/helpers/edit-helper";
 
+const ReviewButton = () => {
+  const onCheck = () => {
+    AlertPopup(reviewAlertMessages, handleReview);
+  };
+
+  return (
+    <PressableButton style={styles.button} pressHandler={onCheck}>
+      <AntDesign name="check" size={20} color="white" />
+    </PressableButton>
+  );
+};
+
 const EditEntry = ({ route }) => {
   const entry = route.params.entryItem;
   const naviagtion = useNavigation();
@@ -33,10 +45,6 @@ const EditEntry = ({ route }) => {
     AlertPopup(deleteAlertMessages, handleDelete);
   };
 
-  const onCheck = () => {
-    AlertPopup(reviewAlertMessages, handleReview);
-  };
-
   return (
     <View style={styles.editContainer}>
       <View style={styles.card}>
@@ -52,9 +60,7 @@ const EditEntry = ({ route }) => {
             <AntDesign name="delete" size={20} color="white" />
           </PressableButton>
           {/* if reviewed, hide check btn */}
-          <PressableButton style={styles.button} pressHandler={onCheck}>
-            <AntDesign name="check" size={20} color="white" />
-          </PressableButton>
+          {entry.calories > 500 && !entry?.reviewed && <ReviewButton />}
         </View>
       </View>
     </View>

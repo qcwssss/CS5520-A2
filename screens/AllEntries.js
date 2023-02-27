@@ -17,7 +17,8 @@ const AllEntries = ({ isOverlimit = false }) => {
         } else {
           let entries = [];
           querySnapshot.docs.forEach((entry) => {
-            const isEntryOverLimit = entry.data().calories > 500;
+            const isEntryOverLimit =
+              entry.data().calories > 500 && !entry?.reviewed;
             if (!isOverlimit || isEntryOverLimit) {
               // console.log(entry.data());
               entries.push({ ...entry.data(), id: entry.id });
