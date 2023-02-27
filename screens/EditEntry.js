@@ -5,32 +5,36 @@ import { AntDesign } from "@expo/vector-icons";
 import PressableButton from "../components/PressableButton";
 import styles from "../styles/styles";
 import { useNavigation } from "@react-navigation/native";
-import { deleteEntryById } from "../Firebase/firestore-helper";
+import { deleteEntryById, reviewEntry } from "../Firebase/firestore-helper";
+import {
+  AlertPopup,
+  deleteAlertMessages,
+  reviewAlertMessages,
+} from "../components/helpers/edit-helper";
 
 const EditEntry = ({ route }) => {
   const entry = route.params.entryItem;
   const naviagtion = useNavigation();
 
-  const onDelete = () => {
-    Alert.alert("Are you sure?", "Deleted entry can't be recovered.", [
-      {
-        text: "Cancel",
-        // onPress: () => {},
-        style: "cancel",
-      },
-      {
-        text: "Delete",
-        onPress: () => {
-          console.log("deleted entry id", entry.id);
-          deleteEntryById(entry.id);
-          naviagtion.goBack();
-        },
-        style: "destructive",
-      },
-    ]);
+  const handleDelete = () => {
+    console.log("deleted entry id", entry.id);
+    deleteEntryById(entry.id);
+    naviagtion.goBack();
   };
+
+  const handleReview = () => {
+    console.log("reviewed entry id", entry.id);
+    // deleteEntryById(entry.id);
+    reviewEntry(entry);
+    naviagtion.goBack();
+  };
+
+  const onDelete = () => {
+    AlertPopup(deleteAlertMessages, handleDelete);
+  };
+
   const onCheck = () => {
-    console.log("check pressed");
+    AlertPopup(reviewAlertMessages, handleReview);
   };
 
   return (

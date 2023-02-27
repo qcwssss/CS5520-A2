@@ -1,4 +1,4 @@
-import { collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, setDoc } from "firebase/firestore";
 import { firestore } from "./firestore-setup";
 
 const addEntryToDB = async (entry) => {
@@ -18,4 +18,16 @@ const deleteEntryById = async (id) => {
   }
 };
 
-export { addEntryToDB, deleteEntryById };
+const reviewEntry = async (entry) => {
+  let { id, ...newEntry } = entry;
+  try {
+    await setDoc(doc(firestore, "entries", entry.id), {
+      ...newEntry,
+      reviewed: true,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { addEntryToDB, deleteEntryById, reviewEntry };

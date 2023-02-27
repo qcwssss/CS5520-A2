@@ -9,6 +9,7 @@ const EntryComponent = ({ entry }) => {
   const naviagtion = useNavigation();
 
   const [limit, setLimit] = useState(500);
+  let isOverlimit = entry.calories > limit && !entry?.isReviewed;
 
   const onPressEntry = () => {
     naviagtion.navigate("EditEntry", { entryItem: entry });
@@ -19,9 +20,7 @@ const EntryComponent = ({ entry }) => {
       <View style={styles.container}>
         <Text style={styles.whiteText}>{entry.description}</Text>
         <View style={styles.numberWrapper}>
-          {entry.calories > limit && (
-            <Foundation name="alert" size={28} color="yellow" />
-          )}
+          {isOverlimit && <Foundation name="alert" size={28} color="yellow" />}
           <View style={styles.numberContainer}>
             <Text style={styles.number}>{entry.calories}</Text>
           </View>
