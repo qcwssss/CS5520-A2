@@ -11,7 +11,6 @@ const EntryComponent = ({ entry }) => {
   const [limit, setLimit] = useState(500);
 
   const onPressEntry = () => {
-    // console.log("pressed", entry);
     naviagtion.navigate("EditEntry", { entryItem: entry });
   };
 
@@ -20,7 +19,7 @@ const EntryComponent = ({ entry }) => {
       <View style={styles.container}>
         <Text style={styles.whiteText}>{entry.description}</Text>
         <View style={styles.numberWrapper}>
-          {entry.calorie > limit && (
+          {entry.calories > limit && (
             <Foundation name="alert" size={28} color="yellow" />
           )}
           <View style={styles.numberContainer}>

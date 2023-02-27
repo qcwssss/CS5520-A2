@@ -1,12 +1,11 @@
-import { collection, onSnapshot, QuerySnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
 import EntriesList from "../components/EntriesList";
 import { firestore } from "../Firebase/firestore-setup";
-import { entries } from "../mock/entryData";
 import styles from "../styles/styles";
 
-const AllEntries = () => {
+const AllEntries = ({ isOverlimit = false }) => {
   const [allEntries, setAllEntries] = useState([]);
 
   useEffect(() => {
@@ -17,14 +16,20 @@ const AllEntries = () => {
           setAllEntries([]);
         } else {
           let entries = [];
-          querySnapshot.docs.forEach((entry) =>
-            entries.push({ ...entry.data(), id: entry.id })
-          );
+          querySnapshot.docs.forEach((entry) => {
+            if (isOverlimit) {
+              if (entry.data().calories > 500) {
+                console.log(entry.data());
+                return entries.push({ ...entry.data(), id: entry.id });
+              }
+            } else return entries.push({ ...entry.data(), id: entry.id });
+          });
           // console.log(entries);
           setAllEntries(entries);
         }
       }
     );
+
     return () => {
       unsubscribe();
     };
