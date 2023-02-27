@@ -1,6 +1,6 @@
 // import styles from "../styles/styles";
 import React from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import PressableButton from "../components/PressableButton";
 import styles from "../styles/styles";
@@ -9,10 +9,11 @@ import { deleteEntryById, reviewEntry } from "../Firebase/firestore-helper";
 import {
   AlertPopup,
   deleteAlertMessages,
+  isStillOverlimit,
   reviewAlertMessages,
 } from "../components/helpers/edit-helper";
 
-const ReviewButton = () => {
+const ReviewButton = ({ handleReview }) => {
   const onCheck = () => {
     AlertPopup(reviewAlertMessages, handleReview);
   };
@@ -36,7 +37,6 @@ const EditEntry = ({ route }) => {
 
   const handleReview = () => {
     console.log("reviewed entry id", entry.id);
-    // deleteEntryById(entry.id);
     reviewEntry(entry);
     naviagtion.goBack();
   };
@@ -60,7 +60,9 @@ const EditEntry = ({ route }) => {
             <AntDesign name="delete" size={20} color="white" />
           </PressableButton>
           {/* if reviewed, hide check btn */}
-          {entry.calories > 500 && !entry?.reviewed && <ReviewButton />}
+          {isStillOverlimit(entry) && (
+            <ReviewButton handleReview={handleReview} />
+          )}
         </View>
       </View>
     </View>

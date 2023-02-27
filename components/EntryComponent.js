@@ -1,15 +1,12 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Foundation } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../styles/styles";
+import { isStillOverlimit } from "./helpers/edit-helper";
 
 const EntryComponent = ({ entry }) => {
-  //   const entry = { item: "Snacks", calorie: 560 };
   const naviagtion = useNavigation();
-
-  const [limit, setLimit] = useState(500);
-  let isOverlimit = entry.calories > limit && !entry?.isReviewed;
 
   const onPressEntry = () => {
     naviagtion.navigate("EditEntry", { entryItem: entry });
@@ -20,7 +17,9 @@ const EntryComponent = ({ entry }) => {
       <View style={styles.container}>
         <Text style={styles.whiteText}>{entry.description}</Text>
         <View style={styles.numberWrapper}>
-          {isOverlimit && <Foundation name="alert" size={28} color="yellow" />}
+          {isStillOverlimit(entry) && (
+            <Foundation name="alert" size={28} color="yellow" />
+          )}
           <View style={styles.numberContainer}>
             <Text style={styles.number}>{entry.calories}</Text>
           </View>

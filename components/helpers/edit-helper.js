@@ -26,4 +26,14 @@ const AlertPopup = (alertMessages, handler) => {
   ]);
 };
 
-export { AlertPopup, deleteAlertMessages, reviewAlertMessages };
+const isStillOverlimit = (entry) => {
+  let limit = 500;
+  return entry.calories > limit && !entry?.reviewed;
+};
+
+export {
+  AlertPopup,
+  deleteAlertMessages,
+  reviewAlertMessages,
+  isStillOverlimit,
+};

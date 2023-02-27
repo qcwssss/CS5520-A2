@@ -2,10 +2,11 @@ import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
 import EntriesList from "../components/EntriesList";
+import { isStillOverlimit } from "../components/helpers/edit-helper";
 import { firestore } from "../Firebase/firestore-setup";
 import styles from "../styles/styles";
 
-const AllEntries = ({ isOverlimit = false }) => {
+const AllEntries = ({ isOnOverlimit = false }) => {
   const [allEntries, setAllEntries] = useState([]);
 
   useEffect(() => {
@@ -17,9 +18,7 @@ const AllEntries = ({ isOverlimit = false }) => {
         } else {
           let entries = [];
           querySnapshot.docs.forEach((entry) => {
-            const isEntryOverLimit =
-              entry.data().calories > 500 && !entry?.reviewed;
-            if (!isOverlimit || isEntryOverLimit) {
+            if (!isOnOverlimit || isStillOverlimit(entry.data())) {
               // console.log(entry.data());
               entries.push({ ...entry.data(), id: entry.id });
             }
