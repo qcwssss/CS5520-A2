@@ -17,14 +17,12 @@ const AllEntries = ({ isOverlimit = false }) => {
         } else {
           let entries = [];
           querySnapshot.docs.forEach((entry) => {
-            if (isOverlimit) {
-              if (entry.data().calories > 500) {
-                console.log(entry.data());
-                return entries.push({ ...entry.data(), id: entry.id });
-              }
-            } else return entries.push({ ...entry.data(), id: entry.id });
+            const isEntryOverLimit = entry.data().calories > 500;
+            if (!isOverlimit || isEntryOverLimit) {
+              console.log(entry.data());
+              entries.push({ ...entry.data(), id: entry.id });
+            }
           });
-          // console.log(entries);
           setAllEntries(entries);
         }
       }
