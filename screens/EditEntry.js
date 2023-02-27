@@ -1,6 +1,6 @@
 // import styles from "../styles/styles";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import PressableButton from "../components/PressableButton";
 import styles from "../styles/styles";
@@ -12,9 +12,22 @@ const EditEntry = ({ route }) => {
   const naviagtion = useNavigation();
 
   const onDelete = () => {
-    console.log("deleted entry id", entry.id);
-    deleteEntryById(entry.id);
-    naviagtion.goBack();
+    Alert.alert("Are you sure?", "Deleted entry can't be recovered.", [
+      {
+        text: "Cancel",
+        // onPress: () => {},
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        onPress: () => {
+          console.log("deleted entry id", entry.id);
+          deleteEntryById(entry.id);
+          naviagtion.goBack();
+        },
+        style: "destructive",
+      },
+    ]);
   };
   const onCheck = () => {
     console.log("check pressed");
